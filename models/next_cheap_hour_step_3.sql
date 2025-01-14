@@ -11,7 +11,7 @@ select
     IsCheap,
     ResetCounter,
     count(0) over ( partition by ResetCounter order by hour desc) AS ReverseCheapCount 
-from {{ ref('Next_Cheap_Hour_Step_2') }} 
+from {{ ref('next_cheap_hour_step_2') }} 
 where 
     IsCheap = 1
 ;

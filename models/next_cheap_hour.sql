@@ -12,14 +12,14 @@ with GroupedData as (
         IsCheap,
         ResetCounter,
         ReverseCheapCount 
-    from {{ ref('Next_Cheap_Hour_Step_3') }}
+    from {{ ref('next_cheap_hour_step_3') }}
     where 
         IsCheap = 1
     ), AggregatedData as (
     select 
         ResetCounter,
         concat(substr(min(timestamp),9,2),':e@',substr(min(timestamp),12,2),'(',count(distinct ReverseCheapCount),'h)') AS CheapStart
-    from {{ ref('Next_Cheap_Hour_Step_3') }}
+    from {{ ref('next_cheap_hour_step_3') }}
     group by    
     ResetCounter
     ), Result as (

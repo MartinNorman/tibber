@@ -1,0 +1,17 @@
+#version: 2
+
+#snapshots:
+#  - name: countrycodes_snapshot
+#    description: "Snapshot of countrycodes data to track historical changes."
+#    relation: source('dbt_dev', 'countrycodes')
+#    config:
+#          target_database: dbt_snapshot
+#          target_schema: dbt_snapshot
+#          unique_key: country
+#          strategy: check
+#          check_cols: all
+#    columns:
+#      - name: country
+#        description: "Name of country."
+#      - name: country_code
+#        description: "Code for country."

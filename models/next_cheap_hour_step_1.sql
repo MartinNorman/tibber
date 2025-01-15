@@ -12,4 +12,3 @@ from Energy.Price a
 where 
     a.timestamp > current_timestamp()
 ;
-

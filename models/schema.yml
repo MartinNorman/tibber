@@ -1,0 +1,45 @@
+version: 2
+
+sources:
+  - name: tibber
+    database: dbt_dev  
+    schema: dbt_dev
+    tables:
+      - name: countrycodes
+      - name: countrycodes_snapshot
+      
+
+    
+  
+
+#models:
+seeds:
+  - name: countrycodes
+    config:
+      tags: 'cc'
+    description: "A brief description of what this model represents."
+    columns:
+      - name: country  
+        tests:  
+          - unique
+          - not_null
+      
+      - name: 'country_code'
+        tests:  
+          - unique
+          - not_null
+
+
+
+
+
+#  - name: next_cheap_hour_step_1
+#      config:
+#        tags: pii1
+#    description: "A brief description of what this model represents."
+#    columns:
+#      - name: country  # Name of a column in the model (e.g., 'order_id')
+#        description: "A description of this column's purpose."
+#        tests:  # Optional: Define column-level tests
+#          - unique
+#          - not_null

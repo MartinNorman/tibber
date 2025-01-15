@@ -1,0 +1,8 @@
+snapshots:
+ - name: countrycodes_snapshot
+   relation: source('dbt_dev', 'countrycodes')
+   config:
+     target_schema: snapshots
+     unique_key: country
+     strategy: check
+     check_cols: all
